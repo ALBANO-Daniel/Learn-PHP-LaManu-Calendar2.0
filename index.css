@@ -1,0 +1,26 @@
+.datepicker-controls .select-month input{
+    width: 90px !important;
+}
+
+.dropdown-content{
+    min-width: 120px !important;
+}
+
+#showProfileImg{
+    display: flex;
+    width: 5rem;
+    height: 5rem;
+}
+
+.greyText{
+    color: gray;
+}
+
+.iconLikedin{
+    width: 28px;
+}
+
+.legendScholarity{
+    font-size: large;
+    padding-inline: 1rem;
+}

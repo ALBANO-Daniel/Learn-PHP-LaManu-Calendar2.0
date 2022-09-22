@@ -1,0 +1,497 @@
+<!-- <?php
+if server resquest {
+    all tests camps
+}
+define('REGEX_POSTAL', "^[0-9]{5}$");  
+//netoyage
+$zipcode = filter_input(INPUT_POST, 'zipcode', FILTLER_SANITIZE_NUMBER_INT);
+//validtation
+if(!empty($zipcode)){
+    #isOk = fiter_var(#zipcode, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>'/'. REGEX_POSTAL . '/')));
+    fi($isOk == false){
+        $errorPostal = 'La donne nes pas valide';
+    }
+}
+?> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+    />
+    <link
+        type="text/css"
+        rel="stylesheet"
+        href="./node_modules/materialize-css/dist/css/materialize.min.css"
+        media="screen,projection"
+    />
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form La Manu</title>
+</head>
+
+<body>
+    <!--     
+    <header>
+        <nav class="top-nav">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="row">
+                        <div class="col s12 m10 offset-m1">
+                            <h1 class="header">Pickers</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container"><a href="#" data-target="nav-mobile"
+                class="top-nav sidenav-trigger full hide-on-large-only"><i class="material-icons">menu</i></a></div>
+    </header> -->
+    <main>
+        <div id="mainContainer" class="container">
+            <form id="formBody" class="row" action="#" method="post">
+
+                <!-- Nom Complet Input -->
+                <div class="input-field col s12 m12">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input id="firstname" type="text" class="validate">
+                    <label for="firstname">Nom complet</label>
+                </div>
+
+                <!-- LastName -->
+                <!-- <div class="input-field col s12 m6">
+                    <input id="lastname" type="text" class="validate">
+                    <label for="lastname">Last Name</label>
+                </div> -->
+
+                <!-- Birthday Input -->
+                <div id="datePicker" class="input-field col s12 m6">
+                    <i class="material-icons prefix">date_range</i>
+                    <input id="birthdate" type="text" class="datepicker validate" />
+                    <label for="birthdate">Date Naissance</label>
+                </div>
+
+                <!-- Email Input -->
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">email</i>
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                </div>
+
+                <!-- Password Input -->
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">lock</i>
+                    <input id="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                </div>
+
+                <!-- Image Profile Input -->
+                <div class="file-field input-field col s12">
+                    <div class="btn grey darken-4 col s2">
+                        <span><i class="material-icons">file_upload</i></span>
+                        <input name="profile image" type="file" accept="image/png, image/jpeg" id="uploadedProfileImg">   <!-- for images -->
+                        <img id="showProfileImg" src="#" alt="profile image" />   <!-- for images -->
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input placeholder="Upload profile image" class="file-path validate" type="text">
+                    </div>
+                </div>
+                
+                <!-- Code Postal   "^[0-9]{5}$" -->
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">home</i>
+                    <input name="zipcode" id="zipcode" type="text" pattern="/^[0-9]{5}/$" class="validate">
+                    <label for="zipcode">Code Postal</label>
+                </div>
+
+                <!-- Pays de Naissance  -->
+                <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">flag</i>
+                    <!-- all countries selection -->
+                    <select name="birthCountry">
+                      <option class="greyText" value="" disabled selected>Pays de Naissance</option>
+                      <option>Afghanistan</option>
+                      <option>Aland Islands</option>
+                      <option>Albania</option>
+                      <option>Algeria</option>
+                      <option>American Samoa</option>
+                      <option>Andorra</option>
+                      <option>Angola</option>
+                      <option>Anguilla</option>
+                      <option>Antigua</option>
+                      <option>Argentina</option>
+                      <option>Armenia</option>
+                      <option>Aruba</option>
+                      <option>Australia</option>
+                      <option>Austria</option>
+                      <option>Azerbaijan</option>
+                      <option>Bahamas</option>
+                      <option>Bahrain</option>
+                      <option>Bangladesh</option>
+                      <option>Barbados</option>
+                      <option>Belarus</option>
+                      <option>Belgium</option>
+                      <option>Belize</option>
+                      <option>Benin</option>
+                      <option>Bermuda</option>
+                      <option>Bhutan</option>
+                      <option>Bolivia</option>
+                      <option>Bosnia</option>
+                      <option>Botswana</option>
+                      <option>Bouvet Island</option>
+                      <option>Brazil</option>
+                      <option>British Virgin Islands</option>
+                      <option>Brunei</option>
+                      <option>Bulgaria</option>
+                      <option>Burkina Faso</option>
+                      <option>Burma</option>
+                      <option>Burundi</option>
+                      <option>Caicos Islands</option>
+                      <option>Cambodia</option>
+                      <option>Cameroon</option>
+                      <option>Canada</option>
+                      <option>Cape Verde</option>
+                      <option>Cayman Islands</option>
+                      <option>Central African Republic</option>
+                      <option>Chad</option>
+                      <option>Chile</option>
+                      <option>China</option>
+                      <option>Christmas Island</option>
+                      <option>Cocos Islands</option>
+                      <option>Colombia</option>
+                      <option>Comoros</option>
+                      <option>Congo Brazzaville</option>
+                      <option>Congo</option>
+                      <option>Cook Islands</option>
+                      <option>Costa Rica</option>
+                      <option>Cote Divoire</option>
+                      <option>Croatia</option>
+                      <option>Cuba</option>
+                      <option>Cyprus</option>
+                      <option>Czech Republic</option>
+                      <option>Denmark</option>
+                      <option>Djibouti</option>
+                      <option>Dominica</option>
+                      <option>Dominican Republic</option>
+                      <option>Ecuador</option>
+                      <option>Egypt</option>
+                      <option>El Salvador</option>
+                      <option>England</option>
+                      <option>Equatorial Guinea</option>
+                      <option>Eritrea</option>
+                      <option>Estonia</option>
+                      <option>Ethiopia</option>
+                      <option>European Union</option>
+                      <option>Falkland Islands</option>
+                      <option>Faroe Islands</option>
+                      <option>Fiji</option>
+                      <option>Finland</option>
+                      <option>France</option>
+                      <option>French Guiana</option>
+                      <option>French Polynesia</option>
+                      <option>French Territories</option>
+                      <option>Gabon</option>
+                      <option>Gambia</option>
+                      <option>Georgia</option>
+                      <option>Germany</option>
+                      <option>Ghana</option>
+                      <option>Gibraltar</option>
+                      <option>Greece</option>
+                      <option>Greenland</option>
+                      <option>Grenada</option>
+                      <option>Guadeloupe</option>
+                      <option>Guam</option>
+                      <option>Guatemala</option>
+                      <option>Guinea-Bissau</option>
+                      <option>Guinea</option>
+                      <option>Guyana</option>
+                      <option>Haiti</option>
+                      <option>Heard Island</option>
+                      <option>Honduras</option>
+                      <option>Hong Kong</option>
+                      <option>Hungary</option>
+                      <option>Iceland</option>
+                      <option>India</option>
+                      <option>Indian Ocean Territory</option>
+                      <option>Indonesia</option>
+                      <option>Iran</option>
+                      <option>Iraq</option>
+                      <option>Ireland</option>
+                      <option>Israel</option>
+                      <option>Italy</option>
+                      <option>Jamaica</option>
+                      <option>Japan</option>
+                      <option>Jordan</option>
+                      <option>Kazakhstan</option>
+                      <option>Kenya</option>
+                      <option>Kiribati</option>
+                      <option>Kuwait</option>
+                      <option>Kyrgyzstan</option>
+                      <option>Laos</option>
+                      <option>Latvia</option>
+                      <option>Lebanon</option>
+                      <option>Lesotho</option>
+                      <option>Liberia</option>
+                      <option>Libya</option>
+                      <option>Liechtenstein</option>
+                      <option>Lithuania</option>
+                      <option>Luxembourg</option>
+                      <option>Macau</option>
+                      <option>Macedonia</option>
+                      <option>Madagascar</option>
+                      <option>Malawi</option>
+                      <option>Malaysia</option>
+                      <option>Maldives</option>
+                      <option>Mali</option>
+                      <option>Malta</option>
+                      <option>Marshall Islands</option>
+                      <option>Martinique</option>
+                      <option>Mauritania</option>
+                      <option>Mauritius</option>
+                      <option>Mayotte</option>
+                      <option>Mexico</option>
+                      <option>Micronesia</option>
+                      <option>Moldova</option>
+                      <option>Monaco</option>
+                      <option>Mongolia</option>
+                      <option>Montenegro</option>
+                      <option>Montserrat</option>
+                      <option>Morocco</option>
+                      <option>Mozambique</option>
+                      <option>Namibia</option>
+                      <option>Nauru</option>
+                      <option>Nepal</option>
+                      <option>Netherlands Antilles</option>
+                      <option>Netherlands</option>
+                      <option>New Caledonia</option>
+                      <option>New Guinea</option>
+                      <option>New Zealand</option>
+                      <option>Nicaragua</option>
+                      <option>Niger</option>
+                      <option>Nigeria</option>
+                      <option>Niue</option>
+                      <option>Norfolk Island</option>
+                      <option>North Korea</option>
+                      <option>Northern Mariana Islands</option>
+                      <option>Norway</option>
+                      <option>Oman</option>
+                      <option>Pakistan</option>
+                      <option>Palau</option>
+                      <option>Palestine</option>
+                      <option>Panama</option>
+                      <option>Paraguay</option>
+                      <option>Peru</option>
+                      <option>Philippines</option>
+                      <option>Pitcairn Islands</option>
+                      <option>Poland</option>
+                      <option>Portugal</option>
+                      <option>Puerto Rico</option>
+                      <option>Qatar</option>
+                      <option>Reunion</option>
+                      <option>Romania</option>
+                      <option>Russia</option>
+                      <option>Rwanda</option>
+                      <option>Saint Helena</option>
+                      <option>Saint Kitts and Nevis</option>
+                      <option>Saint Lucia</option>
+                      <option>Saint Pierre</option>
+                      <option>Saint Vincent</option>
+                      <option>Samoa</option>
+                      <option>San Marino</option>
+                      <option>Sandwich Islands</option>
+                      <option>Sao Tome</option>
+                      <option>Saudi Arabia</option>
+                      <option>Senegal</option>
+                      <option>Serbia</option>
+                      <option>Serbia</option>
+                      <option>Seychelles</option>
+                      <option>Sierra Leone</option>
+                      <option>Singapore</option>
+                      <option>Slovakia</option>
+                      <option>Slovenia</option>
+                      <option>Solomon Islands</option>
+                      <option>Somalia</option>
+                      <option>South Africa</option>
+                      <option>South Korea</option>
+                      <option>Spain</option>
+                      <option>Sri Lanka</option>
+                      <option>Sudan</option>
+                      <option>Suriname</option>
+                      <option>Svalbard</option>
+                      <option>Swaziland</option>
+                      <option>Sweden</option>
+                      <option>Switzerland</option>
+                      <option>Syria</option>
+                      <option>Taiwan</option>
+                      <option>Tajikistan</option>
+                      <option>Tanzania</option>
+                      <option>Thailand</option>
+                      <option>Timorleste</option>
+                      <option>Togo</option>
+                      <option>T<optionelau</option>
+                      <option>Tonga</option>
+                      <option>Trinidad</option>
+                      <option>Tunisia</option>
+                      <option>Turkey</option>
+                      <option>Turkmenistan</option>
+                      <option>Tuvalu</option>
+                      <option>Uganda</option>
+                      <option>Ukraine</option>
+                      <option>United Arab Emirates</option>
+                      <option>United States</option>
+                      <option>Uruguay</option>
+                      <option>Us Minor Islands</option>
+                      <option>Us Virgin Islands</option>
+                      <option>Uzbekistan</option>
+                      <option>Vanuatu</option>
+                      <option>Vatican City</option>
+                      <option>Venezuela</option>
+                      <option>Vietnam</option>
+                      <option>Wallis and Futuna</option>
+                      <option>Western Sahara</option>
+                      <option>Yemen</option>
+                      <option>Zambia</option>
+                      <option>Zimbabwe</option>
+                    </select>
+                    <!-- <label>Pays de Naissance</label> -->
+                </div>
+
+                <!-- Niveau d`etude ( sans, Bac , BAc2 , Bac 3 ou superieur) -->
+                <div class="input-field col s12">
+                    <fieldset class="row">
+                        <legend class="legendScholarity">Niveau d'etude:</legend>
+                        <p>
+                            <label>
+                                <input class="with-gap" name="scholarity" type="radio" value="0" />
+                                <span>Sans</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input class="with-gap" name="scholarity" type="radio" value="1" />
+                                <span>Bac</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input class="with-gap" name="scholarity" type="radio" value="2" />
+                                <span>Bac+2</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input class="with-gap" name="scholarity" type="radio"  value="3"/>
+                                <span>Bac+3</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input class="with-gap" name="scholarity" type="radio" value="4" />
+                                <span>Superieur</span>
+                            </label>
+                        </p>
+                    </fieldset>
+                </div>
+
+                <!-- url compte linkedin -->
+                <div class="input-field col s12">
+                    <div class="row">
+                        <p class="col s2"><img class=" iconLikedin" src="./assets/img/linkedin.png" alt="linkedin Logo" ></img><p>
+                            <div class="col s10">
+                                <input id="linkedin" type="text" class="validate">
+                                <label for="linkedin">Url compte LinkedIN</label>
+                            </div>
+
+                    </div>
+                </div>
+                <!-- Quel langages web connaissez-vous? (HTML/CSS, PHP, Javascript, Python, Autres) -->
+                
+                <!-- Racontez une expérience avec la programmation et/ou l'informatique que vous auriez pu avoir. -->
+                
+                
+                
+                                <!-- <div class="input-field col s12 m12">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input id="firstname" type="text" class="validate">
+                                    <label for="firstname">First Name</label>
+                                </div> -->
+
+
+
+
+
+
+
+
+                <!-- enctyp???  -->
+
+
+              
+
+
+                <!-- regex postal "^[0-9]{5}$"
+                    filter sanitize number int
+                    intval($var) = not float, only int no null zeros
+                ajax to link the zipcode to autocomplete.. -->
+
+                <!-- regex linkedin  http(s)?:\/\/)?(www\.linkedin\.com\/in)\/[a-zA-Z0-9] ) -->
+
+<!-- TEST START -->
+
+
+                <!-- TEST TEST TEST upload image with preview -->
+                <!-- <div class="file-field input-field col s12"> -->
+                    <!-- <input accept="image/*" type='file' id="imgInp" /> -->
+                    <!-- <img id="blah" src="#" alt="your image" /> -->
+                    <!-- <div class="btn grey darken-4"> -->
+                        <!-- <span><i class="material-icons">file_upload</i></span> -->
+                        <!-- test adding accept prop to limit UX for files choices -->
+                        <!-- <input type="file" accept="application/pdf, application/vnd.ms-excel"> FOR PDF AND EXCEL  -->
+                        <!-- <input type="file" accept="image/png, image/jpeg" id="uploadedProfileImg">   for images -->
+                        <!-- <img id="showProfileImg" src="#" alt="profile image" /> -->
+                    <!-- </div> -->
+                    <!-- <div class="file-path-wrapper"> -->
+                        <!-- <input placeholder="Upload profile image" class="file-path validate" type="text"> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+
+
+                <!-- TEST TEST TEST  ---  REGEX  -->
+                <!-- <div class="row-1">
+                    <div class="input-field">
+                        <input 
+                            placeholder="Name should not contain @,;:" 
+                            id="first_name" 
+                            type="text" 
+                            class="validate"
+                        >
+                        onblur="check()"                     -->
+                        <!-- onfocus="check()"  -->
+                        <!-- onchange="check()"  -->
+                        <!-- <label for="first_name">UserName!</label>
+                        <span class="helper-text" data-error="wrong" data-success="right"></span>
+                    </div>
+                </div> --> 
+
+
+                <!-- TEST TEST  TEST ----  SUBMIT BTN  -->
+                <!-- <input type="submit" value="envoie" class="btn right col s12" placeholder="choose it test"> -->
+                <!-- <div class="clearfix"></div> to give some space bottom -->
+
+
+
+            </form>
+        </div>
+    </main>
+    <script
+        type="text/javascript"
+        src="./node_modules/materialize-css/dist/js/materialize.min.js"
+    ></script>
+    <script  type="text/javascript" src="./index.js"></script>
+  </body>
+</html>
